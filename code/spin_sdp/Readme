@@ -1,0 +1,26 @@
+
+
+# Install CVX tool first
+
+# bashrun_SPINsdp.py
+#       script that enable to run experiments parallelly on cluster
+
+# Readme
+#       this file
+
+# run_SPINsdp.m
+#       matlab wrapper function
+
+# SDP_labeling.m
+#       inference algorithm with semidefinite programming relaxation SDP
+#       on directed graph with ++(->) +- -- edge labels
+
+# SDP_labeling_undirected.m
+#       inference algorithm with semidefinite programming relaxation SDP
+#       on undirected graph with ++ +- -+ -- edge labels
+
+# SPINsdp.m
+#       SPIN matlab label function with SDP inference algorithm
+
+# test run
+#       run_SPINsdp('100','0.8','3','0.5','exp','2000_15_100')

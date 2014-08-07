@@ -1,0 +1,42 @@
+
+
+Update 04.08.2014
+    spin with greedy inference algorithm updated to make sure the ICML2014 results can be replicated
+Update 05.08.2014
+    spin with greedy inference algorithm correction such that the bug in global_greedy_labeling.m function is corrected
+
+
+The repository contains codes and some experimental data for Structured Prediction of Network Response (SPIN) algorithm, which appears in International Conference on Machine Learning (ICML 2014).
+The algorithm assumes a network structure as prior (e.g. Facebook) and a set of actions (e.g. posts or messages) performed on the network.
+Given a new action, the algorithm predicts the response network, a DAG, that indicates activated nodes and activation order.
+
+The source code is designed for running on computer cluster (UKKO) at the Department of Computer Science, University of Helsinki.
+
+
+# ../code/dblp/
+        dblp datasets
+
+# ../code/memetracker/
+        memetracker dataset
+
+# Readme
+        this file
+
+# results/
+        result files
+        contain results from spin with global greedy inference due to the size of results files, current size of ./results/ is ~2.1G 
+
+# spin_gdy/
+        SPIN with greedy inference
+
+# spin_sdp/
+        SPIN with semidefinite programming inference
+
+# note
+        if you need more experimental datasets, ask by email to hongyu.su@aalto.fi
+
+
+		Version 1.0
+		27.5.2014
+		Hongyu Su
+
