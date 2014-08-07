@@ -1,0 +1,44 @@
+
+
+
+
+# dblp data set is downloaded from http://dblp.uni-trier.de/xml/, we only need dblp.xml file or the .gz packed file
+# We first extract all papers published after 2000 and collected as inproceedings.
+# We construct a undirected coauthor network by connecting pair of authors if they wrote 5/10/15 papers together.
+# We further remove from the contructed network the clusters that only contain two nodes (author pair).
+# We construct networks of different size (in term of the number of node 100/300/500/700/1000/2000/3000) by 'snow-ball' sampling nodes from network and retaining all edges among sampled nodes.
+# Documents that were written by selected authors (nodes) are selected and represented via bag-of-words features. According to frequeny, we remove words listed in top 5 or bottom 5.  
+# LDA is used to extract topics from documents. Topics are considered as actions performed on the co-author network. 
+# Each document is assigned to one or more topics, and one topic is a set of papers written in difference time which can be seen as the influence of an action over time.
+# We also use LDA to assign words that correlated to each topics. 
+
+
+# Files that are downloaded from https://dl.dropboxusercontent.com/u/21620176/public_html/spine/source.html
+        dblp.xml
+
+# Files that are generated after preprossing (e.g. dblp.inp.2000.5.100)
+# m is the number of training examples (actions)
+# d is the number of features for each examples (words)
+# k is the number of targets (nodes in the network)
+# l is the number of focal nodes for each actions
+        dblp.inp.2000.5.100.sn                  ->      social network
+        dblp.inp.2000.5.100.out                 ->      action cascade
+        dblp.inp.2000.5.100.lda.phix            ->      m by d matrix, bag-of-words features for actions
+        dblp.inp.2000.5.100.lda.Y               ->      m by k matrix, infected nodes with time stamps
+        dblp.inp.2000.5.100.lda.Yv              ->      m by l matrix, focal nodes 
+        dblp.inp.2000.5.100.v                   ->      node name to id list
+        dblp.inp.2000.5.100.e                   ->      undirected network, 'nodeA' 'nodeB' 'number of influence'
+
+# Preprocessing scripts
+        parser_dblp.py   
+        get_statistics.py
+        get_snout.py
+        filtery.r
+
+# Other files
+        statistics.txt                  ->      Statistics of the generated dataset
+        dblp.inp.2000.5.100_sn.pdf      ->      Take a peak of the generated network, e.g. dblp.inp.2000.5.100
+        Readme                          ->      this file
+        ./topictoolbox/                 ->      topic model matlab tool box
+
+

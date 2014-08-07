@@ -1,0 +1,41 @@
+
+
+# Memetracker dataset and preprocessings for ICML2014 paper 'structure prediction of network response'
+
+# Files that are downloaded from https://dl.dropboxusercontent.com/u/21620176/public_html/spine/source.html
+        memeL.out
+        memeL.sn
+        memeM.out
+        memeM.sn
+        memeS.out
+        memeS.sn
+        mainstreamDescr
+        mainstreamLog
+        README.txt
+
+# Files that are generated after preprossing (e.g. for memeL dataset)
+# m is the number of training examples (actions)
+# d is the number of features for each examples (words)
+# k is the number of targets (nodes in the network)
+# l is the number of focal nodes for each actions
+        mt_memeL.sn             ->      social network
+        mt_memeL.out            ->      action cascade
+        mt_memeL.phix           ->      m by d matrix, bag-of-words features for actions
+        mt_memeL.Y              ->      m by k matrix, infected nodes with time stamps
+        mt_memeL.Yv             ->      m by l matrix, focal nodes 
+        mt_memeL.v              ->      node name to id list
+        mt_memeL.e              ->      undirected network, 'nodeA' 'nodeB' 'number of influence'
+        mt_memeL.de             ->      directed network, 'nodeA' 'nodeB' 'number of influence'
+
+# Preprocessing scripts
+        parser_memetracker.py   ->      Retain edges of original network that have at lease 5 influences in the history. Select 5000 messages. Generate other files for the project.
+        get_statistics.py
+        filtery.r
+        filter_pair.r
+
+# Other files
+        statistics.txt          ->      Statistics of the generated dataset
+        mt_memeL_sn.pdf         ->      Take a peak of the generated network, e.g. memeL
+        Readme                  ->      this file
+
+
