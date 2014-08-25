@@ -1,0 +1,21 @@
+
+# bashrun_SPINgreedy.py
+#       script that enables to run experiments parallelly on cluster
+
+# global_greedy_labeling.m
+#       greedy inference in negative feed mode
+
+# Readme
+#       this file
+
+# run_SPINgreedy.m
+#       matlab wrapper function
+
+# SPINgreedy.m
+#       SPIN matlab function
+
+
+# test run
+#       run_SPINgreedy('100','0.8','3','0.5','exp','2000_15_100')
+
+
