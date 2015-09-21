@@ -1,0 +1,233 @@
+%% LaTeX macros
+\usepackage{relsize}
+\usepackage[dvipsnames]%{xcolor}
+
+% Define underscore to be a regular character in text mode
+\begingroup
+  \catcode`\_=\active
+  \gdef_#1{\ensuremath{\sb{#1}}}
+\endgroup
+\mathcode`\_=\string"8000
+\catcode`\_=12
+
+% Set version number
+\newcommand\version{$3.0$}
+
+\newcommand\copyrightfootnote{
+\footnotetext{Copyright (2008-2013) of Einar Andreas R{\o}dland, distributed
+under the \LaTeX{} Project Public License (LPPL).}
+}
+
+%% format
+\newcommand\spara[1]{\smallskip\noindent{\bf #1}}
+\newcommand\mpara[1]{\medskip\noindent{\bf #1}}
+
+%% paper specific macros 
+\newcommand{\sdp}{{\sc sdp}}
+\newcommand{\greedy}{{\sc greedy}}
+\newcommand{\spinsdp}{{\sc spin-sdp}}
+\newcommand{\spingreedy}{{\sc spin-greedy}}
+\newcommand{\maxcut}{{\sc max-cut}}
+\newcommand{\NP}{{\ensuremath{\mathbf{NP}}}}
+\newcommand{\vect}[1]{{\ensuremath{\mathbf{#1}}}}
+\newcommand{\reals}{{\ensuremath{\mathbb{R}}}}
+\newcommand{\sphere}{{\ensuremath{\mathbb{S}}}}
+
+%TC:macroword \TeXcount 1
+\newcommand\TeXcount{{\TeX}count}
+
+% Text formats
+\newcommand\codestyle[1]{\textsf{\color{Blue}#1}}
+\newcommand\code[1]{{\smaller\codestyle{#1}}}
+\newcommand\bigcode[1]{\codestyle{#1}}
+\newcommand\codeline[1]{\begin{quote}\code{#1}\end{quote}}
+\newcommand\bs[1]{\textbackslash#1}
+\newcommand\URL[1]{\textsf{\small #1}}
+
+% tight spacing in item lists
+\newcommand{\squishlist}{
+\begin{list}{$\bullet$}
+ {  \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{3pt}
+     \setlength{\topsep}{3pt}
+     \setlength{\partopsep}{0pt}
+     \setlength{\leftmargin}{2em}
+     \setlength{\labelwidth}{1.5em}
+     \setlength{\labelsep}{0.5em}
+} }
+\newcommand{\squishlisttight}{
+ \begin{list}{$\bullet$}
+  { \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}
+    \setlength{\topsep}{0pt}
+    \setlength{\partopsep}{0pt}
+    \setlength{\leftmargin}{2em}
+    \setlength{\labelwidth}{1.5em}
+    \setlength{\labelsep}{0.5em}
+} }
+\newcommand{\squishdesc}{
+ \begin{list}{}
+  {  \setlength{\itemsep}{0pt}
+     \setlength{\parsep}{3pt}
+     \setlength{\topsep}{3pt}
+     \setlength{\partopsep}{0pt}
+     \setlength{\leftmargin}{1em}
+     \setlength{\labelwidth}{1.5em}
+     \setlength{\labelsep}{0.5em}
+} }
+\newcommand{\squishend}{
+  \end{list}
+}
+
+% Description items: options, parameters, optional parameters
+% These are also interpreted by dos2html.pl
+\def\option[#1]{\item[\bigcode{#1}]\hskip 0pt plus 10pt}
+\def\parm#1{\textit{\color{OliveGreen}#1}}
+\def\opt#1{\parm{[#1]}}
+\def\alt#1{[#1]}
+\def\optiontext#1{\textrm{\bfseries\color{black}#1}}
+
+% Mark off notification in contents for good visibility
+\newcommand\ContentsNote[1]{\addtocontents{toc}{\string\marginpar{\textsf{\color{red}\tiny #1}}}}
+
+% Notabene: margin note
+%TC:macro NB 1
+\newcommand\NB[1]{\ContentsNote{NB}\marginpar{\textsf{\tiny#1}}}
+
+% Mark text as a notification
+%TC:macro NOTE [text]
+\newcommand\NOTE[1]{\textit{\color{red}#1}}
+
+% Mark text for update
+%TC:macro UPDATE [text]
+\newcommand\UPDATE[1]{\ContentsNote{UPDATE}\textit{\textbf{\color{red}This needs to be updated:} {\color{blue}#1}}}
+
+% Mark text as a notification
+%TC:macro TODO [text]
+\newcommand\TODO[1]{\ContentsNote{TODO}\textit{\textbf{\color{red}#1}}}
+
+% BUG
+%TC:macro BUG [text]
+\newcommand\BUG[1]{{\color{red}#1}}
+
+\makeatletter
+
+
+\renewcommand\abstractname{Abstract}
+\renewenvironment{abstract}{%
+  \begin{center}%
+    {\slshape\bfseries\large\abstractname\vspace{-.5em}\vspace{\z@}}%
+  \end{center}%
+  \vskip 4pt
+  \slshape
+}{
+\vskip 0.5em
+}
+
+\makeatother
+
+% Packages hyperref and algorithmic misbehave sometimes.  We can fix
+% this with the following command.
+\newcommand{\theHalgorithm}{\arabic{algorithm}}
+
+%% \usepackage[accepted]{icml2013} 
+%\usepackage{icml2013} 
+
+
+%% definitions
+\iffalse
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{observation}{Observation}
+\newtheorem{problem}{Problem}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newtheorem{property}{Property}
+\newenvironment{proof}{\paragraph{Proof}}{\hfill$\square$}
+\fi
+%% macros
+\newcommand{\fix}{\marginpar{FIX}}
+\newcommand{\new}{\marginpar{NEW}}
+\newcommand{\IR}{\mathbf{R}}
+\newcommand{\IQ}{\mathbf{Q}}
+\newcommand{\II}{\mathbf{I}}
+\newcommand{\IZ}{\mathbf{Z}}
+\newcommand{\IP}{\mathbf{P}}
+\newcommand{\IE}{\mathbf{E}}
+\newcommand{\IN}{\mathbf{N}}
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+\newcommand{\dphi}{\Delta \negthinspace \varphi}
+\newcommand{\Dphi}{\Delta \negthinspace \Phi}
+\newcommand{\pex}{\!+\!1} % +1 label
+\newcommand{\nex}{\!-\!1} % -1 label\newcommand{\etal}{{\em et al.}}
+\newcommand{\sbf}[1]{\boldsymbol{#1}}
+\newcommand{\mbf}[1]{\mathbf{#1}} 
+\newcommand{\KK}{K}
+\newcommand{\ww}{w}
+\newcommand{\set}[1]{\{#1\}}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Fcal}{\mathcal{F}} %feature space
+\newcommand{\Gcal}{\mathcal{G}}
+\newcommand{\Hcal}{\mathcal{H}} %feature space / RKHS
+\newcommand{\Ncal}{\mathcal{N}} %covering numbers
+\newcommand{\Pcal}{\mathcal{P}} %Family Probability
+\newcommand{\Xcal}{\mathcal{X}} %set of possible inputs x
+\newcommand{\Ycal}{\mathcal{Y}} %set of possible outputs y
+\newcommand{\Zcal}{\mathcal{Z}}
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\Scal}{\mathcal{S}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Tcal}{\mathcal{T}}
+\newcommand{\argmax}{\textbf{argmax}}
+\newcommand{\argmin}{\textbf{argmin}}
+%\newcommand{\ind}[1]{\llbracket #1 \rrbracket}
+\newcommand{\ind}[1]{[ #1 ]}
+\newcommand{\norm}[1]{\left|\left| #1 \right|\right|}
+\newcommand{\xb}{{\bf x}}
+\newcommand{\yb}{{\bf y}}
+\newcommand{\zb}{{\bf z}}
+\newcommand{\gb}{{\bf g}}
+%\newcommand{\pb}{{\bf p}}
+\newcommand{\rb}{{\bf r}}
+\newcommand{\wb}{{\bf w}}
+\newcommand{\vb}{{\bf v}}
+\newcommand{\ab}{{\bf a}}
+\newcommand{\bb}{{\bf b}}
+\newcommand{\cb}{{\bf c}}
+\newcommand{\db}{{\bf d}}
+\newcommand{\eb}{{\bf e}}
+\newcommand{\ub}{{\bf u}}
+\newcommand{\ib}{{\bf i}}
+\newcommand{\jb}{{\bf j}}
+\newcommand{\kb}{{\bf k}}
+\newcommand{\tb}{{\bf t}}
+\newcommand{\fb}{{\bf f}}
+\newcommand{\mub}{\mathbf{\mu}}
+\newcommand{\vzero}{{\bf 0}}
+\newcommand{\vone}{{\bf 1}}
+\newcommand{\vDelta}{\mathbf{\Delta}}
+\newcommand{\vxi}{\mathbf{\xi}}
+\newcommand{\valpha}{\mathbf{\alpha}}
+\newcommand{\vphi}{\mathbf{\phi}}
+\newcommand{\vell}{\mathbf{\ell}}
+\newcommand{\zo}{0 \negthinspace / \negthinspace 1}
+\newcommand{\lz}{\ell_{\zo}}
+\newcommand{\lsym}{\ell_\Delta}
+\newcommand{\lnicolo}{\ell_{H}}
+\newcommand{\ledge}{\ell_{\tilde{H}}}
+\newcommand{\HMcubed}{HM$^3$}
+
+\newcommand{\minimize}{\textbf{min}}
+\newcommand{\maximize}{\textbf{max}}
+
+\newcommand{\p}{\ensuremath{\mathtt{p}}}
+\newcommand{\n}{\ensuremath{\mathtt{n}}}
+
+\newcommand{\pp}{\ensuremath{\mathtt{pp}}}
+\newcommand{\pn}{\ensuremath{\mathtt{pn}}}
+\newcommand{\nn}{\ensuremath{\mathtt{nn}}}
+
